@@ -17,7 +17,7 @@ namespace Labb1_LINQ.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
         {
-            optionsBuilder.UseSqlServer("Data Source = LAPTOP-4AAOB4IN; Initial Catalog=Labb1-LINQDB; Integrated Security = True;");
+            optionsBuilder.UseSqlServer("Data Source = LAPTOP-4AAOB4IN; Initial Catalog=Labb1-LINQDB; Integrated Security = True; TrustServerCertificate=Yes;");
         }
     }
 }
