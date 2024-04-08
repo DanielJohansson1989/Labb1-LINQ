@@ -15,6 +15,9 @@ namespace Labb1_LINQ.Data
         public DbSet<Subject> Subject {  get; set; }
         public DbSet<Teacher> Teacher {  get; set; }
 
+        public DbSet<CourseContent> CourseContent { get; set; }
+        public DbSet<SubjectTeacherAssociation> SubjectTeacherAssociation { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) 
         {
             optionsBuilder.UseSqlServer("Data Source = LAPTOP-4AAOB4IN; Initial Catalog=Labb1-LINQDB; Integrated Security = True; TrustServerCertificate=Yes;");
