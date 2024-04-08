@@ -17,6 +17,6 @@ namespace Labb1_LINQ.Models
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
-        public virtual ICollection<Subject> Subjects { get; set; } // Osäker på hur relationerna ska se ut
+        public virtual SubjectTeacherAssociation SubjectTeacher { get; set; } 
     }
 }
