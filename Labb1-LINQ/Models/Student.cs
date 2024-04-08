@@ -17,6 +17,6 @@ namespace Labb1_LINQ.Models
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
-        public virtual Course Course { get; set; } //varje student har en utbildning (course = sut23)
+        public virtual CourseContent CourseContent { get; set; }
     }
 }
