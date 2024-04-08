@@ -14,6 +14,5 @@ namespace Labb1_LINQ.Models
         [Required]
         [MaxLength(50)]
         public string SubjectName { get; set; }
-        public virtual SubjectTeacherAssociation SubjectTeacher { get; set; }
     }
 }

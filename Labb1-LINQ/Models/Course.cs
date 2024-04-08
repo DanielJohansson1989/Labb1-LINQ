@@ -13,8 +13,6 @@ namespace Labb1_LINQ.Models
         public int CourseId { get; set; }
         [Required]
         [MaxLength(50)]
-        public string CourseName { get; set; }
-        public virtual CourseContent CourseContent { get; set; }
-        
+        public string CourseName { get; set; }       
     }
 }

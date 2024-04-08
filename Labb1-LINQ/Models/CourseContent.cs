@@ -11,8 +11,8 @@ namespace Labb1_LINQ.Models
     {
         [Key]
         public int CourseContentId { get; set; }
-        public virtual ICollection<Course> Courses { get; set; }
-        public virtual ICollection<SubjectTeacherAssociation> SubjectTeachers { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual Course Courses { get; set; }
+        public virtual SubjectTeacherAssociation SubjectByTeacher { get; set; }
+        public virtual Student Students { get; set; }
     }
 }

@@ -16,7 +16,6 @@ namespace Labb1_LINQ.Models
         public string FirstName { get; set; }
         [Required]
         [MaxLength(50)]
-        public string LastName { get; set; }
-        public virtual SubjectTeacherAssociation SubjectTeacher { get; set; } 
+        public string LastName { get; set; } 
     }
 }
