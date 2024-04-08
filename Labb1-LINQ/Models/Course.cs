@@ -14,7 +14,7 @@ namespace Labb1_LINQ.Models
         [Required]
         [MaxLength(50)]
         public string CourseName { get; set; }
-        public virtual ICollection<Student> Students { get; set; } // en utbildning har många studenter
-        public virtual ICollection<Subject> Subjects { get; set; } // en utbildning har många ämnen
+        public virtual CourseContent CourseContent { get; set; }
+        
     }
 }
