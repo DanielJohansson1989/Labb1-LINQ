@@ -14,5 +14,6 @@ namespace Labb1_LINQ.Models
         [Required]
         [MaxLength(50)]
         public string SubjectName { get; set; }
+        public ICollection<SubjectTeacherAssociation> SubjectTeacherAssociation { get; set; }
     }
 }

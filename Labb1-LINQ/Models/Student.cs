@@ -17,5 +17,7 @@ namespace Labb1_LINQ.Models
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
+        public int CourseContentId { get; set; }
+        public CourseContent CourseContent { get; set; }
     }
 }

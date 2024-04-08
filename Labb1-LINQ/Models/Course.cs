@@ -13,6 +13,7 @@ namespace Labb1_LINQ.Models
         public int CourseId { get; set; }
         [Required]
         [MaxLength(50)]
-        public string CourseName { get; set; }       
+        public string CourseName { get; set; }
+        public ICollection<CourseContent> CourseContent { get; set; }
     }
 }
