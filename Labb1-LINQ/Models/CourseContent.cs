@@ -15,6 +15,5 @@ namespace Labb1_LINQ.Models
         public Course Course { get; set; }
         public int SubjectByTeacherId {  get; set; }
         public SubjectTeacherAssociation SubjectByTeacher { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
     }
 }

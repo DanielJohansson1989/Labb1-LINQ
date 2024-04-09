@@ -15,5 +15,6 @@ namespace Labb1_LINQ.Models
         [MaxLength(50)]
         public string CourseName { get; set; }
         public ICollection<CourseContent> CourseContent { get; set; }
+        public ICollection<Student> Students { get; set; }
     }
 }
