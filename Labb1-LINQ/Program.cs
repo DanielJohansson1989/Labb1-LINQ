@@ -8,7 +8,7 @@ namespace Labb1_LINQ
         static void Main(string[] args)
         {
             // add data to database
-            using SchoolDbContext db = new SchoolDbContext();
+            //using SchoolDbContext db = new SchoolDbContext();
             //db.Teacher.Add(new Teacher { FirstName = "Anas", LastName = "Qlok"});
             //db.Teacher.Add(new Teacher { FirstName = "Tobias", LastName = "Qlok"});
             //db.Teacher.Add(new Teacher { FirstName = "Reidar", LastName = "Qlok"});
@@ -55,6 +55,11 @@ namespace Labb1_LINQ
             //db.CourseContent.Add(new CourseContent { CourseId = 16, SubjectByTeacherId = 10 });
 
             //db.SaveChanges();
+            do
+            {
+            Menu.RunMenu();
+
+            } while (true);
         }
     }
 }
