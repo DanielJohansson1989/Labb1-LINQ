@@ -13,9 +13,13 @@ namespace Labb1_LINQ
         {
             using SchoolDbContext dbContext = new SchoolDbContext();
 
-            Console.WriteLine("    Print menu");
+            Console.WriteLine("    Get all teachers that teach math\n" +
+                "    Get all students and their teachers\n" +
+                "    Check if Programmering 1 is a subject\n" +
+                "    Edit a subject from programmering 2 to OOP\n" +
+                "    If student have Anas as teacher, change Anas to Reidar");
 
-            int userOption = CursorMenu(0, 0, 1); //Change argument to correct rows 
+            int userOption = CursorMenu(0, 0, 4); 
 
             Console.Clear();
 
@@ -23,6 +27,21 @@ namespace Labb1_LINQ
             {
                 case 0:
                     // Get all teachers who teach math
+                    var teachers = (from x in dbContext.SubjectTeacherAssociation
+                                    join subject in dbContext.Subject on x.SubjectId equals subject.SubjectId
+                                    join teacher in dbContext.Teacher on x.TeacherId equals teacher.TeacherId
+                                    where subject.SubjectName == "Math"
+                                    select new
+                                    {
+                                        teacher.FirstName,
+                                        teacher.LastName
+                                    });
+                    foreach (var teacher in teachers)
+                    {
+                        Console.WriteLine(teacher.FirstName + " " + teacher.LastName);
+                    }
+                    Console.ReadKey();
+                    Console.Clear();
                     break;
 
                 case 1:
