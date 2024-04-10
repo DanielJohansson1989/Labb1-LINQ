@@ -1,4 +1,6 @@
 ﻿using Labb1_LINQ.Data;
+using Labb1_LINQ.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +48,33 @@ namespace Labb1_LINQ
 
                 case 1:
                     // Get all students with their teachers
+                    var result = (from course in dbContext.Course
+                                  join student in dbContext.Student on course.CourseId equals student.CourseId
+                                  join courseContent in dbContext.CourseContent on course.CourseId equals courseContent.CourseId
+                                  join subjectTeacherAssoc in dbContext.SubjectTeacherAssociation on courseContent.SubjectByTeacherId equals subjectTeacherAssoc.SubjectTeacherId
+                                  join teacher in dbContext.Teacher on subjectTeacherAssoc.TeacherId equals teacher.TeacherId
+                                  orderby student.FirstName
+                                  select new
+                                  {
+                                      studentName = student.FirstName + " " + student.LastName,
+                                      teacherName = teacher.FirstName + " " + teacher.LastName,
+                                  }).Distinct();
+
+                    string tempStudentName = "";
+                    foreach (var item in result)
+                    {
+                        if (item.studentName != tempStudentName)
+                        {
+                            tempStudentName = item.studentName;
+                            Console.WriteLine($"Student name: {item.studentName} \t Teacher name: {item.teacherName}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"                                 Teacher name: {item.teacherName}");
+                        }
+                    }
+                    Console.ReadKey();
+                    Console.Clear();
                     break;
 
                 case 2:
