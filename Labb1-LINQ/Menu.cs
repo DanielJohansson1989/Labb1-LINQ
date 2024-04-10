@@ -88,6 +88,22 @@ namespace Labb1_LINQ
 
                 case 3:
                     // Edit subject Programmering 2 to OOP
+                    var subjectToChange = (from subject in dbContext.Subject
+                                           where subject.SubjectName == "Programmering 2"
+                                           select subject).FirstOrDefault();
+
+                    if (subjectToChange != null)
+                    {
+                        subjectToChange.SubjectName = "OOP";
+                        dbContext.SaveChanges();
+                        Console.WriteLine("Subject name is updated!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Subject not found");
+                    }
+                    Console.ReadKey();
+                    Console.Clear();
                     break;
 
                 case 4:
