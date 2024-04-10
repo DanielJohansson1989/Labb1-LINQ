@@ -50,6 +50,11 @@ namespace Labb1_LINQ
 
                 case 2:
                     // Check if Subject table contains programmering1
+                    bool found = (from subject in dbContext.Subject
+                                  select subject.SubjectName).Contains("Programmering 1");
+                    Console.WriteLine($"There is a subject named Programmering 1: {found}");
+                    Console.ReadKey();
+                    Console.Clear();
                     break;
 
                 case 3:
