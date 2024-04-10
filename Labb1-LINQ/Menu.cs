@@ -107,7 +107,27 @@ namespace Labb1_LINQ
                     break;
 
                 case 4:
-                    //Update student record Teacher to Reidar if Teacher is Anas. 
+                    //Update student record Teacher to Reidar if Teacher is Anas.
+                    var subjectsWithAnas = (from subjectByTeacher in dbContext.SubjectTeacherAssociation
+                                           join teacher in dbContext.Teacher on subjectByTeacher.TeacherId equals teacher.TeacherId
+                                           where teacher.FirstName.Contains("Anas")
+                                           select subjectByTeacher);
+
+                    var reidarId = (from teacher in dbContext.Teacher
+                                    where teacher.FirstName == "Reidar"
+                                    select teacher.TeacherId).FirstOrDefault();
+
+                    int numOfChangedSubjects = 0;
+
+                    foreach (var subject in subjectsWithAnas)
+                    {
+                        subject.TeacherId = reidarId;
+                        numOfChangedSubjects++;
+                    }
+                    dbContext.SaveChanges();
+                    Console.WriteLine("{0} subjects have changed their teacher to Reidar", numOfChangedSubjects);
+                    Console.ReadKey();
+                    Console.Clear();
                     break;
             }
 
